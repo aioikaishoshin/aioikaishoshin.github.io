@@ -5,16 +5,152 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trang Chủ - Aioikai Shoshin</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 20px; text-align: center; }
-        .container { max-width: 800px; margin: 0 auto; }
+        /* --- ĐỊNH DẠNG CHUNG CỦA TRANG --- */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+            color: #333;
+        }
+
+        /* --- ĐỊNH DẠNG THANH MENU NGANG --- */
+        .navbar {
+            background-color: #2c3e50; /* Màu nền chính của menu */
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .navbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between; /* Đẩy Logo sang trái, Menu sang phải */
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        /* Logo của nhóm */
+        .logo a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 24px;
+            font-weight: bold;
+            line-height: 60px;
+        }
+
+        /* Danh sách các mục menu */
+        .nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex; /* Kích hoạt chế độ dàn hàng ngang */
+        }
+
+        .nav-links li {
+            position: relative;
+        }
+
+        /* Định dạng các đường link trong menu */
+        .nav-links a {
+            display: block;
+            color: #e0e0e0;
+            text-decoration: none;
+            padding: 0 20px;
+            line-height: 60px; /* Chiều cao của thanh menu */
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s ease; /* Tạo hiệu ứng đổi màu mượt mà */
+        }
+
+        /* Hiệu ứng khi di chuột vào (Hover) */
+        .nav-links a:hover {
+            color: #ffffff;
+            background-color: #34495e; /* Màu nền khi đổi */
+        }
+
+        /* Đánh dấu mục đang hoạt động (Ví dụ trang chủ) */
+        .nav-links a.active {
+            color: #3498db;
+            border-bottom: 3px solid #3498db;
+        }
+
+        /* --- ĐỊNH DẠNG NỘI DUNG TRANG WEB --- */
+        .content-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        /* Bản đồ Google Maps responsive */
+        .map-wrapper {
+            margin-top: 30px;
+            position: relative;
+            padding-bottom: 56.25%; /* Tỷ lệ khung hình 16:9 */
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .map-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* Tối ưu hóa giao diện cho điện thoại di động */
+        @media (max-width: 768px) {
+            .navbar-container {
+                flex-direction: column; /* Xếp dọc logo và menu trên điện thoại */
+                padding: 10px 0;
+            }
+            .nav-links a {
+                line-height: 45px;
+                padding: 0 15px;
+                font-size: 14px;
+            }
+            .logo a {
+                line-height: 40px;
+            }
+        }
         iframe { width: 100%; height: 450px; border: 0; margin-top: 20px; border-radius: 8px; }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Chào mừng đến với trang thông tin của Aioikai Shoshin</h1>
-        <p>Đây là một trang thử nghiệm</p>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d979.7699342735725!2d106.67525856962493!3d10.805204899334083!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175294c94d86bcf%3A0x9c827250518a7f20!2zMjEgxJAuIMSQw6BvIER1eSBBbmgsIMSQ4bupYyBOaHXhuq1uLCBI4buTIENow60gTWluaCwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1791393816378!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo">
+                <a href="#">LOGO NHÓM</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#" class="active">Trang Chủ</a></li>
+                <li><a href="#gioi-thieu">Giới Thiệu</a></li>
+                <li><a href="#hoat-dong">Hoạt Động</a></li>
+                <li><a href="#ban-do">Vị Trí</a></li>
+                <li><a href="#lien-he">Liên Hệ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- NỘI DUNG TRANG WEB -->
+    <div class="content-container">
+        <h1>Chào mừng đến với trang thông tin của Aioikai Shoshin<</h1>
+        <p>Trang đang được xây dựng</p>
+        
+        <!-- VÙNG CHỨA BẢN ĐỒ GOOGLE MAPS -->
+         <div id="ban-do" class="map-wrapper">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d979.7699342735725!2d106.67525856962493!3d10.805204899334083!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175294c94d86bcf%3A0x9c827250518a7f20!2zMjEgxJAuIMSQw6BvIER1eSBBbmgsIMSQ4bupYyBOaHXhuq1uLCBI4buTIENow60gTWluaCwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1791393816378!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
     </div>
 </body>
 </html>
