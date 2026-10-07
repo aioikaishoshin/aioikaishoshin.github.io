@@ -1,0 +1,2 @@
+# homepage
+Aioikai Shoshin Homepage
