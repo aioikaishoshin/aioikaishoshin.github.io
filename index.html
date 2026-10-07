@@ -29,7 +29,14 @@
             display: flex;
             justify-content: space-between; /* Đẩy Logo sang trái, Menu sang phải */
             align-items: center;
+            height: 60px;
             padding: 0 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;            /* Căn giữa ảnh theo trục dọc */
+            height: 100%;                   /* Thừa hưởng chiều cao 60px của navbar-container */
         }
 
         /* Logo của nhóm */
@@ -39,6 +46,22 @@
             font-size: 24px;
             font-weight: bold;
             line-height: 60px;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 42px;       /* Thu nhỏ chiều cao logo lại để vừa vặn menu */
+            width: auto;        /* Tự động tính chiều rộng theo tỷ lệ gốc (sẽ là 45px vì ảnh gốc hình vuông 400x400) */
+            max-width: 100%;
+            object-fit: contain;
+            border-radius: 4px; /* Bo góc nhẹ cho logo nếu muốn (tùy chọn) */
+            transition: transform 0.3s ease; /* Tạo hiệu ứng phóng to nhẹ khi di chuột */
+        }
+
+        /* Hiệu ứng khi di chuột vào Logo */
+        .logo img:hover {
+            transform: scale(1.05);
         }
 
         /* Danh sách các mục menu */
@@ -47,6 +70,8 @@
             margin: 0;
             padding: 0;
             display: flex; /* Kích hoạt chế độ dàn hàng ngang */
+            align-items: center;            /* Căn giữa các thẻ li bên trong */
+            height: 100%;
         }
 
         .nav-links li {
@@ -56,12 +81,16 @@
         /* Định dạng các đường link trong menu */
         .nav-links a {
             display: block;
+            display: flex;
+            align-items: center;
             color: #e0e0e0;
             text-decoration: none;
             padding: 0 20px;
+            height: 60px;
             line-height: 60px; /* Chiều cao của thanh menu */
             font-size: 16px;
             font-weight: 500;
+            box-sizing: border-box;
             transition: all 0.3s ease; /* Tạo hiệu ứng đổi màu mượt mà */
         }
 
@@ -122,34 +151,44 @@
             .logo a {
                 line-height: 40px;
             }
+
+            .logo {
+                height: auto;
+                margin-bottom: 10px;
+            }
+            .logo img {
+                height: 50px; /* Trên điện thoại có thể cho logo to hơn một chút vì menu đã chuyển thành dạng dọc */
+            }
         }
     </style>
 </head>
 <body>
-    <nav class="navbar">
-        <div class="navbar-container">
-            <div class="logo">
-                <a href="#">LOGO NHÓM</a>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#" class="active">Trang Chủ</a></li>
-                <li><a href="#gioi-thieu">Giới Thiệu</a></li>
-                <li><a href="#hoat-dong">Hoạt Động</a></li>
-                <li><a href="#ban-do">Vị Trí</a></li>
-                <li><a href="#lien-he">Liên Hệ</a></li>
-            </ul>
+<nav class="navbar">
+    <div class="navbar-container">
+        <div class="logo">
+            <a href="#"><img src="img/aioikai_logo.jpg" alt="logo"></a>
         </div>
-    </nav>
-
-    <!-- NỘI DUNG TRANG WEB -->
-    <div class="content-container">
-        <h1>Chào mừng đến với trang thông tin của Aioikai Shoshin</h1>
-        <p>Trang đang được xây dựng</p>
-        
-        <!-- VÙNG CHỨA BẢN ĐỒ GOOGLE MAPS -->
-         <div id="ban-do" class="map-wrapper">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d979.7699342735725!2d106.67525856962493!3d10.805204899334083!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175294c94d86bcf%3A0x9c827250518a7f20!2zMjEgxJAuIMSQw6BvIER1eSBBbmgsIMSQ4bupYyBOaHXhuq1uLCBI4buTIENow60gTWluaCwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1791393816378!5m2!1svi!2s" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin"></iframe>
-        </div>
+        <ul class="nav-links">
+            <li><a href="#" class="active">Trang Chủ</a></li>
+            <li><a href="#gioi-thieu">Giới Thiệu</a></li>
+            <li><a href="#hoat-dong">Hoạt Động</a></li>
+            <li><a href="#ban-do">Vị Trí</a></li>
+            <li><a href="#lien-he">Liên Hệ</a></li>
+        </ul>
     </div>
+</nav>
+
+<!-- NỘI DUNG TRANG WEB -->
+<div class="content-container">
+    <h1>Chào mừng đến với Aioikai Shoshin</h1>
+    <p>Trang đang được xây dựng</p>
+
+    <!-- VÙNG CHỨA BẢN ĐỒ GOOGLE MAPS -->
+    <div id="ban-do" class="map-wrapper">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d979.7699342735725!2d106.67525856962493!3d10.805204899334083!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3175294c94d86bcf%3A0x9c827250518a7f20!2zMjEgxJAuIMSQw6BvIER1eSBBbmgsIMSQ4bupYyBOaHXhuq1uLCBI4buTIENow60gTWluaCwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1791393816378!5m2!1svi!2s"
+                width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"></iframe>
+    </div>
+</div>
 </body>
 </html>
